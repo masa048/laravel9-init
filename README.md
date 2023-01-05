@@ -1,3 +1,37 @@
+#laravel9初期セットアップ完了後のリポジトリ
+
+## セットアップ手順
+
+### クローンする
+```
+git clone https://github.com/masa048/laravel9-init.git ./
+```
+
+### sailコマンドを利用可能にする
+```
+docker run --rm -u "$(id -u):$(id -g)" -v $(pwd):/var/www/html -w /var/www/html laravelsail/php81-composer:latest composer install --ignore-platform-reqs
+```
+
+### .env.exampleをコピーし.envを作成
+（.envは特に編集しない）
+
+### sailコマンドでサーバ起動
+```
+./vendor/bin/sail up -d
+```
+
+### （初回のみ）key:generate実行
+```
+./vendor/bin/sail php artisan key:generate
+```
+
+### （初回のみ）マイグレーション実行
+```
+./vendor/bin/sail php artisan migrate
+```
+
+# 以下、Laravel9インストール時のREADME
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
